@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 0 216 262" role="img" aria-label="Logo Katharina Jantzen">
+  <!-- stem -->
+  <rect x="94" y="220" width="12" height="34" rx="6" fill="#404040"/>
+  <!-- row4 grey -->
+  <path d="M100,148 C128,138 168,140 188,160 C206,178 202,205 178,220 C155,234 122,238 100,230 Z" fill="#404040" stroke="white" stroke-width="4"/>
+  <path d="M100,148 C72,138 32,140 12,160 C-6,178 -2,205 22,220 C45,234 78,238 100,230 Z" fill="#404040" stroke="white" stroke-width="4"/>
+  <!-- row3 navy -->
+  <path d="M100,104 C122,92 155,90 176,107 C195,122 195,148 178,164 C160,181 125,188 100,182 Z" fill="#000080" stroke="white" stroke-width="4"/>
+  <path d="M100,104 C78,92 45,90 24,107 C5,122 5,148 22,164 C40,181 75,188 100,182 Z" fill="#000080" stroke="white" stroke-width="4"/>
+  <!-- row2 green -->
+  <path d="M100,60 C118,50 145,48 162,62 C178,75 178,95 165,108 C150,122 122,128 100,124 Z" fill="#008000" stroke="white" stroke-width="4"/>
+  <path d="M100,60 C82,50 55,48 38,62 C22,75 22,95 35,108 C50,122 78,128 100,124 Z" fill="#008000" stroke="white" stroke-width="4"/>
+  <!-- row1 maroon -->
+  <path d="M100,8 C78,8 60,20 52,42 C46,60 55,85 75,100 C85,107 93,111 100,115 C107,111 115,107 125,100 C145,85 154,60 148,42 C140,20 122,8 100,8 Z" fill="#800000" stroke="white" stroke-width="4"/>
+</svg>
