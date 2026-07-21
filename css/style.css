@@ -91,8 +91,8 @@ h1, h2, h3, h4 {
   color: var(--navy);
   line-height: 1.18;
   margin: 0 0 0.5em;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: normal;
 }
 
 p {
@@ -213,8 +213,9 @@ section {
 }
 
 .brand-logo {
-  width: 46px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -230,7 +231,7 @@ section {
   font-weight: 700;
   font-size: 1.28rem;
   color: var(--navy);
-  letter-spacing: -0.01em;
+  letter-spacing: normal;
 }
 
 .brand-tagline {
@@ -1119,8 +1120,8 @@ section {
 }
 
 .footer-brand .brand-logo {
-  width: 40px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
 }
 
 .footer-brand .brand-name {
