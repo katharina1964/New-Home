@@ -1,3 +1,5 @@
+</> YAML  
+
 name: Website zu dogado übertragen
 
 on:
@@ -24,4 +26,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: 21
-          server-dir: /
+          server-dir: /httpdocs/
