@@ -1,7 +1,5 @@
 </> YAML  
 
-name: Website zu dogado übertragen
-
 on:
   push:
     branches:
