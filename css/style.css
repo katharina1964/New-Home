@@ -1098,7 +1098,7 @@ section {
 
 .pull-quote {
   position: relative;
-  margin: 36px 0 0;
+  margin: 36px 0 40px;
   padding: 28px 34px;
   background: var(--white);
   border-radius: var(--radius-lg);
