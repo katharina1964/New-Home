@@ -13,12 +13,12 @@
 <meta property="og:title" content="Segel setzen — Nachfolgeberatung für Unternehmerfamilien | Katharina Jantzen">
 <meta property="og:description" content="Der ganzheitliche Prozess der Unternehmensnachfolge. Von der Galeere zum Zweimaster – als Lotsin begleite ich Unternehmerfamilien durch den gesamten Nachfolgeprozess.">
 <meta property="og:url" content="https://katharinajantzen.de/segel-setzen.html">
-<meta property="og:image" content="https://katharinajantzen.de/assets/katharina-outdoor.jpg">
+<meta property="og:image" content="https://katharinajantzen.de/assets/boat-hero-bow.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Segel setzen — Nachfolgeberatung für Unternehmerfamilien | Katharina Jantzen">
 <meta name="twitter:description" content="Der ganzheitliche Prozess der Unternehmensnachfolge. Von der Galeere zum Zweimaster – als Lotsin begleite ich Unternehmerfamilien durch den gesamten Nachfolgeprozess.">
-<meta name="twitter:image" content="https://katharinajantzen.de/assets/katharina-outdoor.jpg">
+<meta name="twitter:image" content="https://katharinajantzen.de/assets/boat-hero-bow.jpg">
 
 <script type="application/ld+json">
 {
@@ -74,7 +74,19 @@
 </head>
 <body>
 
-<header class="site-header">
+<div class="intro-veil" id="introVeil" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="chapter-nav" aria-label="Kapitelnavigation">
+  <a href="#akt-ausgangspunkt" data-chapter="I"><span class="chapter-tip">I — Der Ausgangspunkt</span></a>
+  <a href="#akt-wandel" data-chapter="II"><span class="chapter-tip">II — Der Wandel</span></a>
+  <a href="#akt-crew" data-chapter="III"><span class="chapter-tip">III — Die Crew</span></a>
+  <a href="#akt-prozess" data-chapter="IV"><span class="chapter-tip">IV — Der Prozess</span></a>
+  <a href="#akt-lotsin" data-chapter="V"><span class="chapter-tip">V — Die Lotsin</span></a>
+  <a href="#kontakt" data-chapter="K"><span class="chapter-tip">Erstgespräch vereinbaren</span></a>
+</nav>
+
+<header class="site-header" id="siteHeader">
   <div class="container header-inner">
     <a href="index.html" class="brand">
       <img src="assets/logo.png" alt="Logo Katharina Jantzen" class="brand-logo">
@@ -102,62 +114,66 @@
 
 <main>
 
-  <section class="hero">
-    <div class="blob blob-a"></div>
-    <div class="blob blob-b"></div>
-    <div class="container">
-      <div class="hero-top">
-        <div class="hero-inner reveal">
-          <span class="eyebrow">Nachfolgeberatung für Unternehmerfamilien</span>
-          <h1>Segel setzen</h1>
-          <p class="lede">Der ganzheitliche Prozess der Unternehmensnachfolge.</p>
-          <p class="lede">Von der Galeere zum Zweimaster.</p>
-          <div class="hero-body">
-            <p>Als Lotsin begleite ich Unternehmerfamilien durch den gesamten Prozess ihrer Unternehmensnachfolge. Der gemeinsame Weg beginnt mit dem Kick-off auf dem Segelboot. Anschließend führt er in die langfristige Neuordnung von Verantwortung, Rollen und Zusammenarbeit – im Unternehmen und in der Unternehmerfamilie.</p>
-          </div>
-          <div class="hero-actions">
-            <a href="#kontakt" class="btn btn-primary">
-              Erstgespräch vereinbaren
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a href="#prozess" class="btn btn-outline">Den Prozess ansehen</a>
-          </div>
-        </div>
-
-        <div class="hero-photo reveal">
-          <div class="hero-photo-frame">
-            <img src="assets/katharina-outdoor.jpg" alt="Portrait von Katharina Jantzen">
-          </div>
-        </div>
+  <!-- Prolog / Hero -->
+  <section class="act act--hero">
+    <div class="act-media"><img src="assets/boat-hero-bow.jpg" alt="Segelyacht unter vollen Segeln vor der kroatischen Küste"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="eyebrow">Nachfolgeberatung für Unternehmerfamilien</span>
+      <h1>Segel setzen</h1>
+      <p class="act-lede">Der ganzheitliche Prozess der Unternehmensnachfolge.<br>Von der Galeere zum Zweimaster.</p>
+      <div class="act-actions">
+        <a href="#kontakt" class="btn btn-primary">
+          Erstgespräch vereinbaren
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#akt-ausgangspunkt" class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.5);">Der Film beginnt</a>
       </div>
+    </div>
+    <div class="act-scroll-cue" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="kicker">Der Ausgangspunkt</span>
-        <h2>Wenn einer allein am Ruder steht</h2>
-        <p>In vielen Familienunternehmen hält eine Unternehmerpersönlichkeit über Jahrzehnte den Kurs. Bei ihr laufen Wissen, Beziehungen, Entscheidungen und Verantwortung zusammen. Diese Form der Führung hat das Unternehmen geprägt, ihm Stabilität gegeben und seinen Erfolg ermöglicht.</p>
-      </div>
+  <!-- Akt I -->
+  <section class="act" id="akt-ausgangspunkt">
+    <div class="act-media"><img src="assets/boat-stern-crew.jpg" alt="Crew im Gespräch am Heck eines Segelboots"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="act-chapter"><span class="chapter-num">I</span> Der Ausgangspunkt</span>
+      <h2>Wenn einer allein am Ruder steht</h2>
+      <p class="act-lede">In vielen Familienunternehmen hält eine Unternehmerpersönlichkeit über Jahrzehnte den Kurs. Bei ihr laufen Wissen, Beziehungen, Entscheidungen und Verantwortung zusammen.</p>
+    </div>
+  </section>
 
+  <section class="section detail">
+    <div class="container">
       <div class="content-block reveal">
+        <p>Diese Form der Führung hat das Unternehmen geprägt, ihm Stabilität gegeben und seinen Erfolg ermöglicht.</p>
         <p>Mit der anstehenden Nachfolge zeigt sich jedoch: Es reicht nicht, das Ruder weiterzugeben. Zukünftige Rollen sind zu klären, Verantwortung und Wissen müssen neu verteilt und unterschiedliche Vorstellungen innerhalb der Unternehmerfamilie zusammengeführt werden. Das betrifft auch jene Familienmitglieder, die nicht operativ im Unternehmen tätig sind.</p>
         <p>Denn Nachfolge verändert mehr als die Führungsspitze. Sie verändert das Zusammenspiel der gesamten Crew.</p>
       </div>
-
       <div class="pull-quote pull-quote--maroon reveal">
         <p>Eine tragfähige Nachfolge entsteht, wenn aus persönlicher Verantwortung eine gemeinsame neue Ordnung wird.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt">
+  <!-- Akt II -->
+  <section class="act" id="akt-wandel">
+    <div class="act-media"><img src="assets/boat-full-sail.jpg" alt="Segelyacht mit vollen Segeln in Fahrt"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="act-chapter"><span class="chapter-num">II</span> Der Wandel</span>
+      <h2>Von der Galeere zum Zweimaster</h2>
+      <p class="act-lede">Auf der bisherigen Reise war der Unternehmer oft zugleich Antrieb und Antreiber. Mit der Nachfolge beginnt ein neuer Abschnitt.</p>
+    </div>
+  </section>
+
+  <section class="section detail">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="kicker">Der Wandel</span>
-        <h2>Von der Galeere zum Zweimaster</h2>
-        <p>Auf der bisherigen Reise war der Unternehmer oft zugleich Antrieb und Antreiber: Mit persönlichem Einsatz, Entschlossenheit und Ausdauer hat er den Kurs bestimmt, Herausforderungen gemeistert und sein Unternehmen sicher durch viele Etappen geführt.</p>
+      <div class="content-block reveal">
+        <p>Mit persönlichem Einsatz, Entschlossenheit und Ausdauer hat er den Kurs bestimmt, Herausforderungen gemeistert und sein Unternehmen sicher durch viele Etappen geführt. So ist ein erfolgreiches Lebenswerk entstanden, das das Fundament für alles Weitere bildet. Dabei fühlte er sich häufig wie ein Besatzungsmitglied auf einer Galeere.</p>
       </div>
 
       <div class="compare-boats reveal">
@@ -166,7 +182,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20 3 12h18l-1 8"/><path d="M12 12V4"/><path d="M7 8h1M10 8h1M13 8h1M16 8h1"/><path d="M7 8V6M10 8V6M13 8V6M16 8V6"/></svg>
           </div>
           <h4>Die Galeere</h4>
-          <p>Ein Antrieb, viele Ruder. Kurs und Kraft liegen bei einer Person. So ist ein erfolgreiches Lebenswerk entstanden – oft mit dem Gefühl, selbst Besatzungsmitglied auf der Galeere zu sein.</p>
+          <p>Ein Antrieb, viele Ruder. Kurs und Kraft liegen bei einer Person.</p>
         </div>
         <div class="compare-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -176,12 +192,12 @@
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21c3 1.2 5.5 1.2 8.5 0s5.5-1.2 8.5 0"/><path d="M7 21V6l6 5-6 5"/><path d="M15 21V3l5 8-5 4"/></svg>
           </div>
           <h4>Der Zweimaster</h4>
-          <p>Verteilte Verantwortung, gemeinsamer Kurs. Rollen, Zusammenarbeit und Zukunft werden neu ausgerichtet – getragen von mehreren.</p>
+          <p>Verteilte Verantwortung, gemeinsamer Kurs — getragen von mehreren.</p>
         </div>
       </div>
 
       <div class="content-block reveal">
-        <p>Mit der Nachfolge beginnt ein neuer Abschnitt. Es geht darum, den Blick zu weiten, neue Möglichkeiten zu denken und persönliche wie unternehmerische Perspektiven neu auszurichten. Dabei steht nicht nur die Übergabe von Verantwortung im Mittelpunkt, sondern die Chance, sich selbst, die Familie und das Unternehmen neu zu definieren. Bewährtes bleibt erhalten, während zugleich Raum für neue Rollen, veränderte Formen der Zusammenarbeit und eine tragfähige Zukunft entsteht.</p>
+        <p>Es geht darum, den Blick zu weiten, neue Möglichkeiten zu denken und persönliche wie unternehmerische Perspektiven neu auszurichten. Dabei steht nicht nur die Übergabe von Verantwortung im Mittelpunkt, sondern die Chance, sich selbst, die Familie und das Unternehmen neu zu definieren. Bewährtes bleibt erhalten, während zugleich Raum für neue Rollen, veränderte Formen der Zusammenarbeit und eine tragfähige Zukunft entsteht.</p>
         <p>Für den Unternehmer eröffnet sich damit auch die Möglichkeit, die Früchte seiner bisherigen Arbeit bewusster zu genießen und den nächsten Lebensabschnitt aktiv und selbstbestimmt zu gestalten. Der bisherige Weg wird damit nicht ersetzt, sondern weiterentwickelt – hin zu einem neuen gemeinsamen Aufbruch.</p>
       </div>
 
@@ -191,45 +207,57 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="kicker">Die Familie als Crew</span>
-        <h2>Die gesamte Unternehmerfamilie gehört zur Crew</h2>
-        <p>Unternehmensnachfolge betrifft nicht nur den Unternehmer und die künftigen Nachfolger. Sie berührt die gesamte Unternehmerfamilie – denn unternehmerische Verantwortung, familiäre Beziehungen, persönliche Lebensentwürfe und die gemeinsame Zukunft sind eng miteinander verbunden.</p>
-      </div>
+  <!-- Akt III -->
+  <section class="act" id="akt-crew">
+    <div class="act-media"><img src="assets/boat-crew-helm.jpg" alt="Crew am Steuerrad eines Segelboots" style="object-position:center 45%;"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="act-chapter"><span class="chapter-num">III</span> Die Familie als Crew</span>
+      <h2>Die gesamte Unternehmerfamilie gehört zur Crew</h2>
+      <p class="act-lede">Unternehmensnachfolge betrifft nicht nur den Unternehmer und die künftigen Nachfolger. Sie berührt die gesamte Unternehmerfamilie.</p>
+    </div>
+  </section>
 
+  <section class="section detail">
+    <div class="container">
       <div class="content-block reveal">
-        <p>Auch Familienmitglieder, die nicht operativ im Unternehmen tätig sind, bringen eigene Perspektiven, Erwartungen und Interessen mit. Diese wirken auf den Nachfolgeprozess ein, selbst wenn sie nicht unmittelbar an unternehmerischen Entscheidungen beteiligt sind.</p>
+        <p>Denn unternehmerische Verantwortung, familiäre Beziehungen, persönliche Lebensentwürfe und die gemeinsame Zukunft sind eng miteinander verbunden. Auch Familienmitglieder, die nicht operativ im Unternehmen tätig sind, bringen eigene Perspektiven, Erwartungen und Interessen mit. Diese wirken auf den Nachfolgeprozess ein, selbst wenn sie nicht unmittelbar an unternehmerischen Entscheidungen beteiligt sind.</p>
         <p>Familie und Unternehmen folgen dabei unterschiedlichen Logiken: Das Unternehmen benötigt Klarheit, Verbindlichkeit und Entscheidungsfähigkeit. In der Familie geht es zugleich um Zugehörigkeit, Vertrauen und einen als stimmig empfundenen Umgang miteinander. Im Nachfolgeprozess treffen beide Systeme unmittelbar aufeinander.</p>
         <p>Deshalb ist es wichtig, die unterschiedlichen Perspektiven frühzeitig an Bord zu holen. Das bedeutet nicht, dass alle dieselbe Rolle übernehmen oder über alles gemeinsam entscheiden. Es bedeutet, Klarheit darüber zu schaffen, wer künftig welche Verantwortung trägt, wie Entscheidungen getroffen werden und was die Familie miteinander verbindet.</p>
         <p>So entsteht die Grundlage für einen gemeinsamen Kurs, tragfähige Vereinbarungen und einen Familienkodex, der der Unternehmerfamilie langfristig Orientierung gibt.</p>
       </div>
-
       <div class="pull-quote pull-quote--navy reveal">
         <p>Eine tragfähige Nachfolge entsteht, wenn Unternehmen und Familie ihre Zukunft gemeinsam verstehen und ihre jeweiligen Rollen darin klar gestalten.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt" id="prozess">
+  <!-- Akt IV -->
+  <section class="act" id="akt-prozess">
+    <div class="act-media"><img src="assets/boat-heeling.jpg" alt="Segelyacht in Schräglage bei voller Fahrt"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="act-chapter"><span class="chapter-num">IV</span> Der Prozess</span>
+      <h2>Segel setzen</h2>
+      <p class="act-lede">Ein gemeinsamer Auftakt. Zwei verbundene Projektstränge. Ein langfristiger Nachfolgeprozess.</p>
+    </div>
+  </section>
+
+  <section class="section detail">
     <div class="container">
       <div class="section-header reveal">
-        <span class="kicker">Der Prozess</span>
-        <h2>Segel setzen</h2>
-        <p class="lede" style="color:var(--maroon); font-weight:600;">Ein gemeinsamer Auftakt. Zwei verbundene Projektstränge. Ein langfristiger Nachfolgeprozess.</p>
         <p>Unternehmensnachfolge folgt keiner vorgefertigten Route. Jedes Unternehmen und jede Unternehmerfamilie bringt eine eigene Geschichte, individuelle Voraussetzungen und unterschiedliche Vorstellungen von der Zukunft mit. Die Segel werden individuell gesetzt.</p>
       </div>
 
       <div class="content-block reveal">
-        <h2>Bevor die Leinen gelöst werden</h2>
+        <h3>Bevor die Leinen gelöst werden</h3>
         <p>In vorbereitenden Gesprächen betrachten wir die aktuelle Situation des Unternehmens und der Unternehmerfamilie: Wer ist am Nachfolgeprozess beteiligt? Welche Veränderungen stehen an? Welche Erwartungen, Fragen und möglichen Spannungsfelder prägen die Ausgangslage?</p>
         <p>Auf dieser Grundlage entwickle ich das individuelle Konzept für den gemeinsamen Auftakt auf dem Segelboot. So gehen alle Beteiligten mit einem klaren Verständnis der Ausgangslage an Bord.</p>
         <p>Die Vorbereitung und der Auftakt sind keine isolierten Maßnahmen. Sie bilden den bewussten Beginn eines langfristigen Prozesses, in dem persönliche, familiäre und unternehmerische Perspektiven zusammengeführt werden.</p>
       </div>
 
       <div class="content-block reveal">
-        <h2>Zwei Projektstränge – ein gemeinsamer Kurs</h2>
+        <h3>Zwei Projektstränge – ein gemeinsamer Kurs</h3>
         <p>Nach dem gemeinsamen Auftakt auf dem Segelboot wird der Nachfolgeprozess in zwei eng miteinander verbundenen Projektsträngen fortgeführt. Beide greifen ineinander und werden auf die jeweilige Situation des Unternehmens und der Unternehmerfamilie abgestimmt.</p>
       </div>
 
@@ -238,7 +266,7 @@
           <div class="track-label">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m14.5 9.5-2 5-5 2 2-5 5-2Z"/></svg>
           </div>
-          <h3>Nachfolgegestaltung und Nachfolgenavigation</h3>
+          <h4>Nachfolgegestaltung und Nachfolgenavigation</h4>
           <p>In diesem Projektstrang stehen die konkrete Gestaltung der Nachfolge und die Navigation durch den Übergang im Mittelpunkt. Rollen, Verantwortungsbereiche und Entscheidungsräume werden geklärt. Die nächsten Etappen werden festgelegt und in eine tragfähige zeitliche Abfolge gebracht.</p>
           <p>Dabei werden die persönlichen Perspektiven der Beteiligten ebenso berücksichtigt wie die unternehmerischen Anforderungen. So entsteht ein gemeinsames Verständnis davon, wie Verantwortung schrittweise übergeben, übernommen und künftig getragen werden kann.</p>
         </article>
@@ -247,7 +275,7 @@
           <div class="track-label">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="18" cy="8" r="2.2"/><path d="M22 21v-.8a4.2 4.2 0 0 0-3.2-4.08"/></svg>
           </div>
-          <h3>Organisationsentwicklung, Unternehmerfamilie und Familienkodex</h3>
+          <h4>Organisationsentwicklung, Unternehmerfamilie und Familienkodex</h4>
           <p>Unternehmensnachfolge verändert nicht nur einzelne Rollen. Sie wirkt auf die Organisation, die Zusammenarbeit und das Verhältnis von Familie und Unternehmen. In diesem Projektstrang werden die zukünftige Führungs- und Organisationsstruktur sowie die Zusammenarbeit innerhalb der Unternehmerfamilie gestaltet.</p>
           <p>Der auf dem Segelboot entwickelte Familienkodex bildet dabei den strategischen und handlungsleitenden Rahmen. Er gibt beiden Projektsträngen Orientierung und verbindet die gemeinsamen Werte und Grundsätze mit den konkreten Entscheidungen im Nachfolgeprozess.</p>
         </article>
@@ -258,13 +286,13 @@
       </div>
 
       <div class="content-block reveal">
-        <h2>Vom Kurs zur Umsetzung</h2>
+        <h3>Vom Kurs zur Umsetzung</h3>
         <p>Ein gemeinsamer Kurs entfaltet seine Wirkung, wenn aus Erkenntnissen und Vereinbarungen konkrete Schritte entstehen. Deshalb werden die Ergebnisse des Auftakts in eine gemeinsame Seekarte überführt. Sie entsteht an Bord und zeigt den Kurs für die kommenden zwölf Monate.</p>
         <p>Die Seekarte beschreibt die nächsten Etappen, notwendige Veränderungen, Verantwortlichkeiten und Entscheidungszeitpunkte. So wird nachvollziehbar, was wann ansteht und wer im weiteren Prozess welche Aufgabe übernimmt.</p>
       </div>
 
       <div class="content-block reveal">
-        <h2>Manöver und Sondermanöver</h2>
+        <h3>Manöver und Sondermanöver</h3>
         <p>Unternehmensnachfolge verläuft selten geradlinig. Mann über Bord, neue Entwicklungen, sich ändernde Winde oder wechselnde Geschwindigkeiten können Anpassungen erforderlich machen. Deshalb wird der eingeschlagene Kurs regelmäßig überprüft und bei Bedarf gemeinsam korrigiert.</p>
         <p>Als Lotsin behalte ich die gesamte Reise im Blick, mache Abweichungen und mögliche Untiefen frühzeitig sichtbar und begleite die Unternehmerfamilie durch die entscheidenden Manöver. Die Verantwortung für die Entscheidungen und deren Umsetzung bleibt dabei stets bei den Beteiligten.</p>
       </div>
@@ -275,13 +303,21 @@
     </div>
   </section>
 
-  <section class="section">
+  <!-- Akt V -->
+  <section class="act act--tint-maroon" id="akt-lotsin">
+    <div class="act-media"><img src="assets/boat-stern-crew.jpg" alt="Gespräch an Bord eines Segelboots" style="object-position:center 55%;"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="act-chapter"><span class="chapter-num">V</span> Meine Rolle</span>
+      <h2>Als Lotsin an Ihrer Seite</h2>
+      <p class="act-lede">Eine Lotsin kommt an Bord, wenn eine besondere Passage bevorsteht — ohne das Schiff oder das Kommando zu übernehmen.</p>
+    </div>
+  </section>
+
+  <section class="section detail">
     <div class="container">
       <div class="page-hero-top">
         <div class="content-block reveal">
-          <span class="kicker">Meine Rolle</span>
-          <h2>Als Lotsin an Ihrer Seite</h2>
-          <p>Eine Lotsin kommt an Bord, wenn eine besondere Passage bevorsteht. Sie bringt Erfahrung, Orientierung und den Blick für Zusammenhänge ein – ohne das Schiff oder das Kommando zu übernehmen.</p>
           <p>In dieser Rolle begleite ich Sie durch den gesamten Nachfolgeprozess. Dabei verbinde ich die unternehmerischen Anforderungen mit den persönlichen Perspektiven der Beteiligten und den Dynamiken innerhalb der Unternehmerfamilie.</p>
           <p>Als Strategieberaterin, Sparringspartnerin und Moderatorin unterstütze ich Sie dabei, unterschiedliche Sichtweisen zusammenzuführen, wesentliche Fragen zu klären und tragfähige Entscheidungen vorzubereiten. Ich mache mögliche Untiefen sichtbar, gebe Orientierung und behalte zugleich den gemeinsam entwickelten Kurs im Blick.</p>
           <p>Dabei gebe ich keine standardisierte Route vor. Jedes Unternehmen, jede Familie und jede Nachfolge bringt eigene Voraussetzungen mit. Gemeinsam entwickeln wir eine Navigation, die zu Ihrer konkreten Situation und den Menschen an Bord passt. Die Verantwortung für den Kurs und die Entscheidungen bleibt bei Ihnen.</p>
@@ -304,6 +340,7 @@
     </div>
   </section>
 
+  <!-- Über mich: quieter portrait interlude, no full-bleed act -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header reveal">
@@ -322,7 +359,7 @@
         </div>
 
         <div class="content-block reveal">
-          <h2>Zwei Tätigkeiten. Eine Haltung.</h2>
+          <h3>Zwei Tätigkeiten. Eine Haltung.</h3>
           <p>Ich habe zwei unterschiedliche Tätigkeiten, die aus derselben Haltung entstehen.</p>
           <p>In meiner Nachfolgeberatung begleite ich Unternehmerfamilien dabei, Verantwortung, Rollen und Zukunft neu zu ordnen. Mit Amber Coaching begleite ich Menschen in persönlichen Entwicklungs- und Übergangsprozessen.</p>
           <p>Beide Tätigkeiten folgen meiner Überzeugung:</p>
@@ -334,19 +371,25 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="cta-band reveal">
-        <div class="blob blob-a"></div>
-        <div class="blob blob-b"></div>
-        <h2>Sind Sie bereit, die Segel für den nächsten Abschnitt zu setzen?</h2>
-        <p>Nachfolge ist mehr als die Übergabe eines Unternehmens. Sie ist die Chance, das Erreichte zu würdigen, neue Möglichkeiten zu denken und die nächste Etappe bewusst zu gestalten – für Sie, Ihre Familie und Ihr Unternehmen.</p>
+  <!-- Epilog -->
+  <section class="act">
+    <div class="act-media"><img src="assets/boat-hero-bow.jpg" alt="Segelyacht unter vollen Segeln"></div>
+    <div class="act-overlay"></div>
+    <div class="act-content container">
+      <span class="act-chapter">Epilog</span>
+      <h2>Sind Sie bereit, die Segel für den nächsten Abschnitt zu setzen?</h2>
+      <p class="act-lede">Nachfolge ist mehr als die Übergabe eines Unternehmens. Sie ist die Chance, das Erreichte zu würdigen, neue Möglichkeiten zu denken und die nächste Etappe bewusst zu gestalten – für Sie, Ihre Familie und Ihr Unternehmen.</p>
+      <div class="act-actions">
         <a href="#kontakt" class="btn btn-primary">
           Erstgespräch vereinbaren
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
+    </div>
+  </section>
 
+  <section class="section">
+    <div class="container">
       <p class="closing-note reveal">Wenn Sie spüren, dass die Zeit für einen neuen Kurs gekommen ist, lassen Sie uns miteinander sprechen. In einem ersten Gespräch schauen wir gemeinsam darauf, wo Sie heute stehen, was Sie bewegt und wohin Ihre Reise führen soll. Als Lotsin begleite ich Sie dabei, Orientierung zu gewinnen und die Segel für Ihren neuen Reiseabschnitt zu setzen.</p>
     </div>
   </section>
@@ -437,5 +480,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/film.js"></script>
 </body>
 </html>

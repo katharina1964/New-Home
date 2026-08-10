@@ -1392,3 +1392,294 @@ section {
   .form-grid { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; }
 }
+
+/* ==========================================================================
+   Cinematic film experience ("Segel setzen")
+   ========================================================================== */
+
+.intro-veil {
+  position: fixed;
+  inset: 0;
+  background: #060c22;
+  z-index: 9999;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 1.1s ease;
+}
+
+.intro-veil.is-hidden {
+  opacity: 0;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--maroon), var(--navy) 60%, var(--green));
+  z-index: 300;
+}
+
+/* ---- header adapting over dark acts ------------------------------------ */
+
+.site-header.on-dark {
+  background: rgba(6, 12, 34, 0.32);
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+.site-header.on-dark .brand-name,
+.site-header.on-dark .main-nav a:not(.btn) {
+  color: var(--white);
+}
+
+.site-header.on-dark .brand-tagline {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-header.on-dark .main-nav a:not(.btn):hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.site-header.on-dark .main-nav a.is-active:not(.btn) {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+.site-header.on-dark .nav-toggle {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.site-header.on-dark .nav-toggle span {
+  background: var(--white);
+}
+
+/* ---- chapter dot navigation --------------------------------------------- */
+
+.chapter-nav {
+  position: fixed;
+  right: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 250;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.chapter-nav a {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  position: relative;
+  transition: transform 0.3s var(--ease);
+}
+
+.chapter-nav a.is-active {
+  transform: scale(1.5);
+}
+
+.chapter-nav .chapter-tip {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(11, 20, 50, 0.82);
+  padding: 5px 12px;
+  border-radius: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  mix-blend-mode: normal;
+}
+
+.chapter-nav a:hover .chapter-tip,
+.chapter-nav a.is-active .chapter-tip {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .chapter-nav { display: none; }
+}
+
+/* ---- act (full-bleed cinematic scene) ----------------------------------- */
+
+.act {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.act--hero {
+  align-items: center;
+  text-align: center;
+}
+
+.act-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.act-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  transform: scale(1.14);
+  transition: transform 7s cubic-bezier(0.16, 0.8, 0.24, 1);
+  will-change: transform;
+}
+
+.act.is-visible .act-media img {
+  transform: scale(1);
+}
+
+.act-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(6, 12, 34, 0.28) 0%, rgba(6, 12, 34, 0.18) 38%, rgba(6, 12, 34, 0.92) 100%);
+}
+
+.act--hero .act-overlay {
+  background: linear-gradient(180deg, rgba(6, 12, 34, 0.55) 0%, rgba(6, 12, 34, 0.35) 45%, rgba(6, 12, 34, 0.8) 100%);
+}
+
+.act--tint-maroon .act-overlay {
+  background: linear-gradient(180deg, rgba(50, 6, 6, 0.28) 0%, rgba(50, 6, 6, 0.18) 38%, rgba(30, 6, 10, 0.92) 100%);
+}
+
+.act-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 0 100px;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 1s ease, transform 1s ease;
+  transition-delay: 0.2s;
+}
+
+.act--hero .act-content {
+  padding: 0;
+}
+
+.act.is-visible .act-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.act-chapter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
+}
+
+.act-chapter .chapter-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #fff;
+  font-size: 0.72rem;
+}
+
+.act h1,
+.act h2 {
+  color: #fff;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  max-width: 900px;
+  margin-bottom: 20px;
+}
+
+.act--hero h1 {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.act p.act-lede {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.18rem;
+  max-width: 640px;
+}
+
+.act--hero p.act-lede {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.act .eyebrow {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.act-scroll-cue {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.8);
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+.act-scroll-cue svg {
+  width: 26px;
+  height: 26px;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+.act-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.act--hero .act-actions {
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .act-media img { transition: none; transform: scale(1); }
+  .act-content { transition: none; opacity: 1; transform: none; }
+  .act-scroll-cue { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .act-content { padding-bottom: 64px; }
+  .act h1, .act h2 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+}
