@@ -346,13 +346,13 @@ html { scroll-behavior: smooth; }
   .a-thread svg {
     animation: a-thread-reveal-clip linear both;
     animation-timeline: view();
-    animation-range: entry;
+    animation-range: cover;
   }
 
   .a-thread-path {
     animation: a-thread-reveal-opacity linear both;
     animation-timeline: view();
-    animation-range: entry;
+    animation-range: cover;
   }
 }
 
