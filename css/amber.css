@@ -294,6 +294,18 @@ html { scroll-behavior: smooth; }
   height: 100%;
   display: block;
   overflow: visible;
+  /* Deckt den Weg von oben nach unten auf, statt ihn per
+     stroke-dasharray zu "zeichnen" — dasharray/dashoffset kollidiert
+     bei stark nicht-uniform gestreckten Pfaden (preserveAspectRatio
+     ="none" + vector-effect:non-scaling-stroke) und lässt den
+     sichtbaren Strich vorzeitig abbrechen. clip-path arbeitet auf der
+     fertig gerenderten Fläche und bleibt davon unberührt. */
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path var(--dur-thread) var(--ease-slow);
+}
+
+.a-thread.is-drawn svg {
+  clip-path: inset(0 0 0% 0);
 }
 
 .a-thread-path {
