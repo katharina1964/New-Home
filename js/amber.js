@@ -80,6 +80,34 @@
     threads.forEach(function (el) { el.classList.add("is-drawn"); });
   }
 
+  // ---- aktive Sprungmarke beim Scrollen ----------------------------------
+
+  var navLinks = document.querySelectorAll(".a-nav a[href^='#']");
+  var navSections = [];
+  navLinks.forEach(function (link) {
+    var section = document.querySelector(link.getAttribute("href"));
+    if (section) { navSections.push({ link: link, section: section }); }
+  });
+
+  if ("IntersectionObserver" in window && navSections.length) {
+    var setActive = function (id) {
+      navLinks.forEach(function (link) {
+        link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
+      });
+    };
+
+    var sectionObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { setActive(entry.target.id); }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    navSections.forEach(function (item) { sectionObserver.observe(item.section); });
+  }
+
   // ---- Kontaktformular ----------------------------------------------------
 
   var form = document.getElementById("a-contact-form");

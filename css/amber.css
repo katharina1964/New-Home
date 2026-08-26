@@ -14,6 +14,8 @@
   /* Grundfläche: helles Creme, kein reines Weiß */
   --cream: #FBF3E6;
   --cream-deep: #F5E9D6;
+  --cream-deep-2: #F2E4D1;
+  --cream-warm: #FBF1E1;
   --sand: #EAD9BD;
   --taupe: #C9AD8B;
 
@@ -48,8 +50,8 @@
   --radius-lg: 36px;
   --radius-pill: 999px;
 
-  --shadow-soft: 0 12px 34px rgba(74, 45, 34, 0.10), 0 2px 8px rgba(74, 45, 34, 0.05);
-  --shadow-lift: 0 20px 46px rgba(74, 45, 34, 0.16), 0 4px 14px rgba(74, 45, 34, 0.07);
+  --shadow-soft: 0 6px 18px rgba(74, 45, 34, 0.06);
+  --shadow-lift: 0 8px 22px rgba(74, 45, 34, 0.08);
 
   --container: 1080px;
   --ease-slow: cubic-bezier(0.22, 1, 0.36, 1);
@@ -86,6 +88,13 @@ html { scroll-behavior: smooth; }
 .amber-body a { color: inherit; text-decoration: none; }
 .amber-body ul { margin: 0; padding: 0; list-style: none; }
 
+.amber-body a:focus-visible,
+.amber-body button:focus-visible {
+  outline: 2.5px solid var(--ci-amber-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .amber-body h1, .amber-body h2, .amber-body h3, .amber-body h4 {
   font-family: var(--font-display);
   color: var(--brown-deep);
@@ -97,7 +106,7 @@ html { scroll-behavior: smooth; }
 .amber-body h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); }
 .amber-body h3 { font-size: clamp(1.24rem, 1.8vw, 1.4rem); }
 
-.amber-body p { margin: 0 0 1.2em; }
+.amber-body p { margin: 0 0 1.2em; max-width: 65ch; }
 
 .a-container {
   width: 100%;
@@ -185,6 +194,10 @@ html { scroll-behavior: smooth; }
 .a-nav a:focus-visible {
   color: var(--brown-deep);
   background: rgba(255, 150, 13, 0.12);
+}
+
+.a-nav a.is-active {
+  color: var(--amber-text);
 }
 
 .a-nav-toggle {
@@ -287,30 +300,33 @@ html { scroll-behavior: smooth; }
   stroke-dashoffset: 0;
 }
 
-/* Helligkeitsstufen des Lichtfadens: zurückhaltend am Anfang, klar am Ende — aber immer als warmer, erkennbarer Strahl */
-.a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.5; opacity: 0.55; filter: drop-shadow(0 0 5px rgba(232, 179, 122, 0.35)); }
-.a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.6; opacity: 0.68; filter: drop-shadow(0 0 6px rgba(240, 144, 15, 0.32)); }
-.a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.8; opacity: 0.72; filter: drop-shadow(0 0 7px rgba(240, 144, 15, 0.34)); }
-.a-thread--4 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 4; opacity: 0.8; filter: drop-shadow(0 0 8px rgba(255, 150, 13, 0.4)); }
-.a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 4.2; opacity: 0.88; filter: drop-shadow(0 0 9px rgba(255, 150, 13, 0.46)); }
-.a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4.4; opacity: 0.94; filter: drop-shadow(0 0 10px rgba(255, 74, 0, 0.42)); }
-.a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.6; opacity: 1; filter: drop-shadow(0 0 12px rgba(218, 49, 7, 0.48)); }
+/* Helligkeitsstufen des Lichtfadens: zurückhaltend am Anfang, klar am Ende.
+   Bewusst ohne Leucht-/Glow-Filter — Wirkung entsteht allein über
+   Strichstärke, Deckkraft und Farbton, wie bei natürlich einfallendem Licht. */
+.a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.2; opacity: 0.45; }
+.a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.3; opacity: 0.55; }
+.a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.4; opacity: 0.6; }
+.a-thread--4 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.6; opacity: 0.68; }
+.a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.8; opacity: 0.76; }
+.a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4; opacity: 0.84; }
+.a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.2; opacity: 0.92; }
 
 @media (max-width: 760px) {
   .a-thread-path { stroke-width: 3 !important; }
 }
 
-/* Wegmarke: kleine "Lichtung" am Übergang zwischen zwei Abschnitten */
+/* Wegmarke: kleine, ruhige Markierung am Übergang zwischen zwei Abschnitten —
+   ein fester Punkt, kein leuchtender Energie-Punkt. */
 .a-waypoint {
   position: absolute;
   top: -8px;
   left: 50%;
-  width: 16px;
-  height: 16px;
+  width: 9px;
+  height: 9px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 180, 60, 0.95) 0%, rgba(255, 150, 13, 0.5) 55%, transparent 78%);
-  filter: blur(0.5px);
+  background: var(--ci-amber-light);
+  box-shadow: 0 0 0 4px rgba(255, 150, 13, 0.16);
   opacity: 0;
   transition: opacity 1.4s var(--ease-slow);
 }
@@ -378,6 +394,18 @@ html { scroll-behavior: smooth; }
 
 .a-section-alt { background: var(--cream-deep); }
 .a-section-sand { background: var(--sand); }
+
+/* Sehr feine, ruhige Helligkeitsabstufungen zwischen sonst gleichfarbigen
+   Abschnitten — bewusst als flache Töne statt Verlauf, damit an den Kanten
+   der Textflächen keine sichtbare Naht entsteht. */
+#moeglichkeiten { background: var(--cream-deep-2); }
+#moeglichkeiten .a-panel { --panel-bg: var(--cream-deep-2); }
+
+#begleitung { background: var(--cream-warm); }
+#begleitung .a-panel { --panel-bg: var(--cream-warm); }
+
+#kontakt { background: var(--cream-warm); }
+#kontakt .a-contact-intro { --panel-bg: var(--cream-warm); }
 
 .a-kicker {
   display: block;
@@ -474,11 +502,10 @@ html { scroll-behavior: smooth; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 65% 55% at 32% 28%, rgba(255, 184, 74, 0.65), transparent 60%),
-    radial-gradient(ellipse 55% 50% at 78% 68%, rgba(218, 49, 7, 0.28), transparent 65%),
-    radial-gradient(ellipse 45% 40% at 65% 15%, rgba(140, 160, 126, 0.22), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 30% 24%, rgba(255, 184, 74, 0.55), transparent 62%),
+    radial-gradient(ellipse 50% 45% at 82% 78%, rgba(140, 160, 126, 0.16), transparent 65%),
     linear-gradient(160deg, var(--sand) 0%, var(--cream-deep) 100%);
-  animation: a-drift 26s ease-in-out infinite;
+  animation: a-drift 34s ease-in-out infinite;
 }
 
 .a-hero-visual-rays {
@@ -486,13 +513,13 @@ html { scroll-behavior: smooth; }
   inset: -10%;
   background: repeating-linear-gradient(
     115deg,
-    rgba(255, 255, 255, 0.16) 0px,
-    rgba(255, 255, 255, 0.16) 2px,
+    rgba(255, 255, 255, 0.12) 0px,
+    rgba(255, 255, 255, 0.12) 2px,
     transparent 2px,
-    transparent 34px
+    transparent 40px
   );
   mix-blend-mode: overlay;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 @media (max-width: 980px) {
@@ -616,7 +643,6 @@ html { scroll-behavior: smooth; }
   padding: 64px 72px;
   border-radius: 45% 55% 58% 42% / 55% 48% 52% 45%;
   background: var(--cream-deep);
-  box-shadow: 0 30px 70px rgba(74, 45, 34, 0.08);
   transform: translateX(-2%);
 }
 
@@ -705,11 +731,10 @@ html { scroll-behavior: smooth; }
 .a-station {
   position: relative;
   background: var(--cream);
+  border: 1px solid rgba(201, 173, 139, 0.4);
   border-radius: var(--radius-lg);
   padding: 34px 34px;
-  box-shadow: var(--shadow-soft);
   max-width: 620px;
-  transition: transform 0.5s var(--ease-slow), box-shadow 0.5s var(--ease-slow);
 }
 
 .a-station:nth-child(odd) { margin-right: auto; }
@@ -718,11 +743,6 @@ html { scroll-behavior: smooth; }
 @media (max-width: 760px) {
   .a-station:nth-child(even) { margin-left: 0; }
   .a-station { max-width: none; }
-}
-
-.a-station:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lift);
 }
 
 .a-station-num {
@@ -775,25 +795,21 @@ html { scroll-behavior: smooth; }
 .a-about-photo {
   position: relative;
   z-index: 1;
+  padding: 18px 18px 30px 0;
 }
 
 .a-about-frame {
   position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-lift);
   aspect-ratio: 4 / 5;
 }
 
 .a-about-frame::before {
   content: "";
   position: absolute;
-  inset: -16%;
-  background: linear-gradient(140deg, var(--ci-amber-light), var(--ci-rust) 60%, var(--sage));
-  opacity: 0.45;
-  filter: blur(38px);
+  inset: 18px -18px -18px 18px;
+  background: var(--sand);
   z-index: 0;
-  border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  border-radius: var(--radius-lg);
 }
 
 .a-about-frame img {
@@ -803,6 +819,7 @@ html { scroll-behavior: smooth; }
   height: 100%;
   object-fit: cover;
   object-position: center 18%;
+  border-radius: var(--radius-lg);
 }
 
 .a-about-text p { color: var(--brown-soft); }
@@ -821,11 +838,10 @@ html { scroll-behavior: smooth; }
 .a-form {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--cream-deep);
   border: 1px solid rgba(201, 173, 139, 0.5);
   border-radius: var(--radius-lg);
   padding: 40px;
-  backdrop-filter: blur(2px);
 }
 
 .a-form-grid {
