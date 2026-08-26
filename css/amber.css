@@ -962,6 +962,78 @@ html { scroll-behavior: smooth; }
   color: var(--cream);
 }
 
+/* ---- Rechtliches: Impressum / Datenschutzerklärung -------------------- */
+/* Eigene, mit "a-" präfixierte Klassen statt generischer Namen wie
+   .container/.section/.kicker — dieses CSS wird als globaler <style>-Block
+   auf der jeweiligen WordPress-Seite eingebunden und darf keine so
+   allgemeinen Selektoren enthalten, die versehentlich Theme-Elemente
+   außerhalb von .amber-body mittreffen könnten. */
+
+.a-legal-hero {
+  padding: 56px 0 20px;
+  background: var(--cream);
+}
+
+.a-legal-hero-inner { max-width: 760px; margin: 0 auto; }
+
+.a-legal-hero h1 {
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin: 0;
+}
+
+.a-legal-main { padding: 12px 0 90px; background: var(--cream); }
+
+.a-legal-content { max-width: 760px; margin: 0 auto; }
+
+.a-legal-content h2 {
+  margin-top: 2em;
+  padding-top: 0.6em;
+  border-top: 1px solid rgba(74, 45, 34, 0.1);
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+}
+
+.a-legal-content h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+
+.a-legal-content h3 { margin-top: 1.6em; font-size: 1.15rem; }
+
+.a-legal-content h4 {
+  margin-top: 1.3em;
+  font-size: 1rem;
+  color: var(--brown-soft);
+}
+
+.a-legal-content p,
+.a-legal-content li { color: var(--brown-soft); }
+
+.a-legal-content ul {
+  list-style: disc;
+  padding-left: 1.3em;
+  margin: 0 0 1.2em;
+}
+
+.a-legal-content li { margin-bottom: 0.5em; max-width: 65ch; }
+
+.a-legal-content a {
+  color: var(--amber-text);
+  text-decoration: underline;
+  text-decoration-color: rgba(166, 51, 11, 0.35);
+  text-underline-offset: 3px;
+}
+
+.a-legal-content a:hover,
+.a-legal-content a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.a-caps-notice {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--brown-soft);
+  background: var(--cream-deep);
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+}
+
 /* ---- responsive ---------------------------------------------------- */
 
 @media (max-width: 980px) {
