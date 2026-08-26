@@ -299,13 +299,12 @@ html { scroll-behavior: smooth; }
      bei stark nicht-uniform gestreckten Pfaden (preserveAspectRatio
      ="none" + vector-effect:non-scaling-stroke) und lässt den
      sichtbaren Strich vorzeitig abbrechen. clip-path arbeitet auf der
-     fertig gerenderten Fläche und bleibt davon unberührt. */
+     fertig gerenderten Fläche und bleibt davon unberührt.
+     Der Wert wird per JavaScript direkt aus der Scrollposition
+     berechnet (siehe amber.js) statt per CSS-Animation — so verhält
+     sich der Aufbau in jedem Browser identisch zur Scrollgeschwindigkeit,
+     unabhängig von der Unterstützung für Scroll-Driven Animations. */
   clip-path: inset(0 0 100% 0);
-  transition: clip-path var(--dur-thread) var(--ease-slow);
-}
-
-.a-thread.is-drawn svg {
-  clip-path: inset(0 0 0% 0);
 }
 
 .a-thread-path {
@@ -313,14 +312,14 @@ html { scroll-behavior: smooth; }
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   opacity: 0;
-  transition: opacity var(--dur-thread) var(--ease-slow);
 }
 
 /* Helligkeitsstufen des Lichtfadens: zurückhaltend am Anfang, klar am Ende.
    Bewusst ohne Leucht-/Glow-Filter — Wirkung entsteht allein über
    Strichstärke, Deckkraft und Farbton, wie bei natürlich einfallendem Licht.
-   Die Ziel-Deckkraft greift erst, wenn der Abschnitt ins Bild scrollt
-   (a-thread.is-drawn) — vorher ist der Pfad unsichtbar (opacity:0 oben). */
+   --path-opacity ist die Ziel-Deckkraft, die amber.js beim Scrollen
+   anteilig anfährt (0 → --path-opacity, proportional zur Scrollstrecke
+   durch den Abschnitt). */
 .a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.2; --path-opacity: 0.45; }
 .a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.3; --path-opacity: 0.55; }
 .a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.4; --path-opacity: 0.6; }
@@ -328,54 +327,6 @@ html { scroll-behavior: smooth; }
 .a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.8; --path-opacity: 0.76; }
 .a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4; --path-opacity: 0.84; }
 .a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.2; --path-opacity: 0.92; }
-
-.a-thread.is-drawn .a-thread-path { opacity: var(--path-opacity, 1); }
-
-/* Scroll-gekoppelter Aufbau: Tempo folgt direkt der Scrollstrecke statt
-   einer festen Zeitdauer — langsames Scrollen baut den Weg langsam auf,
-   schnelles Scrollen entsprechend schnell. Native CSS Scroll-Driven
-   Animation, kein Scroll-Listener in JS nötig (Performance, keine neue
-   Abhängigkeit). Der IntersectionObserver-Übergang oben bleibt als
-   Fallback für Browser ohne Unterstützung aktiv. */
-@supports (animation-timeline: view()) {
-  .a-thread svg,
-  .a-thread-path {
-    transition: none;
-  }
-
-  .a-thread svg {
-    animation: a-thread-reveal-clip linear both;
-    animation-timeline: view();
-    animation-range: cover;
-  }
-
-  .a-thread-path {
-    animation: a-thread-reveal-opacity linear both;
-    animation-timeline: view();
-    animation-range: cover;
-  }
-}
-
-@keyframes a-thread-reveal-clip {
-  from { clip-path: inset(0 0 100% 0); }
-  to { clip-path: inset(0 0 0% 0); }
-}
-
-@keyframes a-thread-reveal-opacity {
-  from { opacity: 0; }
-  to { opacity: var(--path-opacity, 1); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  @supports (animation-timeline: view()) {
-    .a-thread svg,
-    .a-thread-path {
-      animation: none;
-      clip-path: inset(0 0 0% 0);
-      opacity: var(--path-opacity, 1);
-    }
-  }
-}
 
 @media (max-width: 760px) {
   .a-thread-path { stroke-width: 3 !important; }

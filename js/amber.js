@@ -56,7 +56,7 @@
     });
   });
 
-  // ---- ruhige Bewegung des Lichtfadens -----------------------------------
+  // ---- Wegmarken: einmaliges, dezentes Einblenden am Abschnittsanfang ----
 
   var threads = document.querySelectorAll(".a-thread");
   if ("IntersectionObserver" in window && threads.length) {
@@ -76,8 +76,54 @@
     threads.forEach(function (el) { el.classList.add("is-drawn"); });
   }
 
+  // ---- Lichtfaden: Aufbau direkt an die Scrollstrecke gekoppelt ---------
+  // Bewusst kein CSS Scroll-Driven Animation (animation-timeline: view()),
+  // da die Browser-Unterstützung dafür uneinheitlich ist. Stattdessen wird
+  // der sichtbare Anteil bei jedem Scroll-Event neu aus der tatsächlichen
+  // Position des jeweiligen Abschnitts berechnet — funktioniert dadurch in
+  // jedem Browser gleich. Läuft rAF-gedrosselt (max. 1x pro Frame), damit
+  // die Scrollperformance nicht leidet.
+
+  var threadData = Array.prototype.map.call(threads, function (el) {
+    var svg = el.querySelector("svg");
+    var path = el.querySelector(".a-thread-path");
+    var targetOpacity = path ? parseFloat(getComputedStyle(path).getPropertyValue("--path-opacity")) : 1;
+    return { el: el, svg: svg, path: path, targetOpacity: isNaN(targetOpacity) ? 1 : targetOpacity };
+  });
+
   if (reduceMotion) {
-    threads.forEach(function (el) { el.classList.add("is-drawn"); });
+    threadData.forEach(function (t) {
+      if (!t.svg || !t.path) { return; }
+      t.svg.style.clipPath = "inset(0 0 0% 0)";
+      t.path.style.opacity = String(t.targetOpacity);
+    });
+  } else if (threadData.length) {
+    var updateThreads = function () {
+      var vh = window.innerHeight;
+      threadData.forEach(function (t) {
+        if (!t.svg || !t.path) { return; }
+        var rect = t.el.getBoundingClientRect();
+        var total = rect.height + vh;
+        var progress = total > 0 ? (vh - rect.top) / total : 0;
+        if (progress < 0) { progress = 0; }
+        if (progress > 1) { progress = 1; }
+        t.svg.style.clipPath = "inset(0 0 " + ((1 - progress) * 100) + "% 0)";
+        t.path.style.opacity = String(progress * t.targetOpacity);
+      });
+      ticking = false;
+    };
+
+    var ticking = false;
+    var onThreadScroll = function () {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateThreads);
+      }
+    };
+
+    window.addEventListener("scroll", onThreadScroll, { passive: true });
+    window.addEventListener("resize", onThreadScroll, { passive: true });
+    updateThreads();
   }
 
   // ---- aktive Sprungmarke beim Scrollen ----------------------------------
