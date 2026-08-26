@@ -321,21 +321,61 @@ html { scroll-behavior: smooth; }
    Strichstärke, Deckkraft und Farbton, wie bei natürlich einfallendem Licht.
    Die Ziel-Deckkraft greift erst, wenn der Abschnitt ins Bild scrollt
    (a-thread.is-drawn) — vorher ist der Pfad unsichtbar (opacity:0 oben). */
-.a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.2; }
-.a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.3; }
-.a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.4; }
-.a-thread--4 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.6; }
-.a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.8; }
-.a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4; }
-.a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.2; }
+.a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.2; --path-opacity: 0.45; }
+.a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.3; --path-opacity: 0.55; }
+.a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.4; --path-opacity: 0.6; }
+.a-thread--4 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.6; --path-opacity: 0.68; }
+.a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.8; --path-opacity: 0.76; }
+.a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4; --path-opacity: 0.84; }
+.a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.2; --path-opacity: 0.92; }
 
-.a-thread--1.is-drawn .a-thread-path { opacity: 0.45; }
-.a-thread--2.is-drawn .a-thread-path { opacity: 0.55; }
-.a-thread--3.is-drawn .a-thread-path { opacity: 0.6; }
-.a-thread--4.is-drawn .a-thread-path { opacity: 0.68; }
-.a-thread--5.is-drawn .a-thread-path { opacity: 0.76; }
-.a-thread--6.is-drawn .a-thread-path { opacity: 0.84; }
-.a-thread--7.is-drawn .a-thread-path { opacity: 0.92; }
+.a-thread.is-drawn .a-thread-path { opacity: var(--path-opacity, 1); }
+
+/* Scroll-gekoppelter Aufbau: Tempo folgt direkt der Scrollstrecke statt
+   einer festen Zeitdauer — langsames Scrollen baut den Weg langsam auf,
+   schnelles Scrollen entsprechend schnell. Native CSS Scroll-Driven
+   Animation, kein Scroll-Listener in JS nötig (Performance, keine neue
+   Abhängigkeit). Der IntersectionObserver-Übergang oben bleibt als
+   Fallback für Browser ohne Unterstützung aktiv. */
+@supports (animation-timeline: view()) {
+  .a-thread svg,
+  .a-thread-path {
+    transition: none;
+  }
+
+  .a-thread svg {
+    animation: a-thread-reveal-clip linear both;
+    animation-timeline: view();
+    animation-range: entry;
+  }
+
+  .a-thread-path {
+    animation: a-thread-reveal-opacity linear both;
+    animation-timeline: view();
+    animation-range: entry;
+  }
+}
+
+@keyframes a-thread-reveal-clip {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0% 0); }
+}
+
+@keyframes a-thread-reveal-opacity {
+  from { opacity: 0; }
+  to { opacity: var(--path-opacity, 1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @supports (animation-timeline: view()) {
+    .a-thread svg,
+    .a-thread-path {
+      animation: none;
+      clip-path: inset(0 0 0% 0);
+      opacity: var(--path-opacity, 1);
+    }
+  }
+}
 
 @media (max-width: 760px) {
   .a-thread-path { stroke-width: 3 !important; }
