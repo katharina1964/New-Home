@@ -136,6 +136,13 @@ html { scroll-behavior: smooth; }
 /* ---- header ------------------------------------------------------- */
 
 .a-header {
+  /* !important hier bewusst: manche Theme-"Header deaktivieren"-Funktionen
+     blenden pauschal jedes <header>-Element per CSS aus, nicht nur den
+     eigenen Theme-Header. Das würde auch unseren eigenen Header treffen,
+     da er technisch ebenfalls ein <header>-Tag ist. */
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   position: sticky;
   top: 0;
   z-index: 100;
