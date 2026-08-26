@@ -299,26 +299,31 @@ html { scroll-behavior: smooth; }
 .a-thread-path {
   fill: none;
   stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
   vector-effect: non-scaling-stroke;
-  transition: stroke-dashoffset var(--dur-thread) var(--ease-slow);
-}
-
-.a-thread.is-drawn .a-thread-path {
-  stroke-dashoffset: 0;
+  opacity: 0;
+  transition: opacity var(--dur-thread) var(--ease-slow);
 }
 
 /* Helligkeitsstufen des Lichtfadens: zurückhaltend am Anfang, klar am Ende.
    Bewusst ohne Leucht-/Glow-Filter — Wirkung entsteht allein über
-   Strichstärke, Deckkraft und Farbton, wie bei natürlich einfallendem Licht. */
-.a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.2; opacity: 0.45; }
-.a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.3; opacity: 0.55; }
-.a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.4; opacity: 0.6; }
-.a-thread--4 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.6; opacity: 0.68; }
-.a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.8; opacity: 0.76; }
-.a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4; opacity: 0.84; }
-.a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.2; opacity: 0.92; }
+   Strichstärke, Deckkraft und Farbton, wie bei natürlich einfallendem Licht.
+   Die Ziel-Deckkraft greift erst, wenn der Abschnitt ins Bild scrollt
+   (a-thread.is-drawn) — vorher ist der Pfad unsichtbar (opacity:0 oben). */
+.a-thread--1 .a-thread-path { stroke: var(--amber-2); stroke-width: 3.2; }
+.a-thread--2 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.3; }
+.a-thread--3 .a-thread-path { stroke: var(--amber-3); stroke-width: 3.4; }
+.a-thread--4 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.6; }
+.a-thread--5 .a-thread-path { stroke: var(--ci-amber-light); stroke-width: 3.8; }
+.a-thread--6 .a-thread-path { stroke: var(--ci-amber-deep); stroke-width: 4; }
+.a-thread--7 .a-thread-path { stroke: var(--ci-rust); stroke-width: 4.2; }
+
+.a-thread--1.is-drawn .a-thread-path { opacity: 0.45; }
+.a-thread--2.is-drawn .a-thread-path { opacity: 0.55; }
+.a-thread--3.is-drawn .a-thread-path { opacity: 0.6; }
+.a-thread--4.is-drawn .a-thread-path { opacity: 0.68; }
+.a-thread--5.is-drawn .a-thread-path { opacity: 0.76; }
+.a-thread--6.is-drawn .a-thread-path { opacity: 0.84; }
+.a-thread--7.is-drawn .a-thread-path { opacity: 0.92; }
 
 @media (max-width: 760px) {
   .a-thread-path { stroke-width: 3 !important; }
